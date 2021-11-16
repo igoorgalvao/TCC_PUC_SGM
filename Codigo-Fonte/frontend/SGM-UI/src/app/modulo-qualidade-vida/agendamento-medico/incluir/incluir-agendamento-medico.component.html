@@ -1,0 +1,111 @@
+<p-toast></p-toast>
+<div class="content-section introduction">
+    <div>
+        <h3>Agendamento Médico</h3>
+        <p>Realizar Agendamento Médico em Unidade Básica de Saúde</p>
+    </div>
+</div>
+
+<form id="form" name="form" #form="ngForm">
+    <div class="content-section implementation " style="min-height: 550px;">
+
+        <div class="card">
+
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12 p-md-4">
+                    <label for="cpf">CPF</label>
+                    <span for="cpf" style="color: red"> *</span>
+
+                    <p-inputMask [disabled]="edicao" name="cpf" [(ngModel)]="dto.cpf" type="text" mask="999.999.999-99">
+                    </p-inputMask>
+                </div>
+
+                <div *ngIf="!edicao" class="p-field p-col-12 p-md-3" style="padding-top: 22px;">
+                    <div class="p-fluid p-formgrid p-grid">
+                        <div class="p-field p-col ">
+                            <button (click)="consultarFichaSus()" pButton pRipple type="button"
+                                label="Consultar Dados SUS" class="p-button-rounded"></button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="p-field p-col-12" *ngIf="exibirDadosSus">
+                    <label for="nome">Nome</label>
+                    <input [(ngModel)]="dto.fichaSus.nome" readonly disabled name="nome" type="text" pInputText>
+                </div>
+                <div class="p-field p-col-12 p-md-6" *ngIf="exibirDadosSus">
+                    <label for="cartaosus">Cartão Nacional de Saúde</label>
+                    <input [(ngModel)]="dto.fichaSus.cartaoNacionalSaude" readonly disabled name="cartaosus" type="text"
+                        pInputText>
+                </div>
+                <div class="p-field p-col-12 p-md-6" *ngIf="exibirDadosSus">
+                    <label for="dtNasci">Data Nascimento</label>
+                    <input [(ngModel)]="dto.fichaSus.dataNascimentoFormat" datetime="dd/MM/yyyy" readonly disabled
+                        name="dtNasci" type="text" pInputText>
+                </div>
+                <div class="p-field p-col-12" *ngIf="exibirDadosSus">
+                    <label for="endereco">Endereço</label>
+                    <input [(ngModel)]="dto.fichaSus.endereco" readonly disabled name="endereco" type="endereco"
+                        pInputText>
+                </div>
+
+                <div class="p-field p-col-12 p-md-4" *ngIf="exibirDadosSus">
+                    <label for="endereco">Unidade Básica de Saúde</label>
+                    <span for="cpf" style="color: red"> *</span>
+
+                    <p-dropdown (onChange)="recuperarEnderecoUBS()" [(ngModel)]="dto.idUbs" inputId="ubs" name="ubs"
+                        [options]="listaUBS" placeholder="Selecione" optionLabel="nome" optionValue="id"
+                        emptyMessage="Nenhum registro encontrado">
+                    </p-dropdown>
+                </div>
+                <div class="p-field p-col-12 p-md-8" *ngIf="exibirDadosSus">
+                    <label for="enderecoUBS">Endereço UBS</label>
+                    <input [(ngModel)]="enderecoUBS" readonly disabled name="enderecoUBS" type="text" pInputText>
+                </div>
+
+
+                <div class="p-field p-col-12 p-md-4" *ngIf="exibirDadosSus">
+                    <label for="dtHoraConsulta">Data Hora da Consulta</label>
+                    <span for="cpf" style="color: red"> *</span>
+
+                    <p-calendar [(ngModel)]="dto.dataHoraAgendamento" [minDate]="dateHoje" [showTime]="true"
+                        inputId="time" name="dtHoraConsulta" [readonlyInput]="true" dateFormat="dd/mm/yy">
+                    </p-calendar>
+                </div>
+
+                <div class="p-field p-col-12 p-md-8" *ngIf="exibirDadosSus">
+                    <label for="especialidade">Especialidade</label>
+                    <span for="cpf" style="color: red"> *</span>
+
+                    <input [(ngModel)]="dto.especialidade" name="especialidade" type="text" pInputText maxlength="50">
+                </div>
+            </div>
+
+            <br />
+            <div class="p-field p-col-12 p-md-4" *ngIf="exibirDadosSus">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col">
+                        <button (click)="limpar()" pButton pRipple type="button" label="Limpar"
+                            class="p-button-rounded p-button-secondary"></button>
+                    </div>
+                    <div class="p-field p-col">
+                        <button (click)="save()" pButton pRipple type="button" [label]="edicao?'Alterar': 'Agendar'"
+                            class="p-button-rounded"></button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <br /><br />
+            <div class="p-text-right">
+                <button (click)="voltar()" pButton pRipple type="button" label="Voltar"
+                    class="p-button-rounded p-button-secondary"></button>
+            </div>
+
+        </div>
+
+    </div>
+</form>

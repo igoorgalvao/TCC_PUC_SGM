@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio_EncargosPDF" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoPages" columnWidth="782" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="d536a9a4-5fea-4d2c-8e76-7dcfb7614ac0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<subDataset name="SubDataset1" uuid="8928d967-ba21-42b7-9d3d-0e1fc1e969fa"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="pagador" class="java.lang.String"/>
+	<field name="dataGeracao" class="java.lang.String"/>
+	<field name="dataVencimento" class="java.lang.String"/>
+	<field name="multa" class="java.math.BigDecimal"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="782" height="30" uuid="e3f2db97-b9e0-4182-bdfe-0266bd01f8f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREFEITURA MUNICIPAL BOM DESTINO - IPTU]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="238" splitType="Stretch">
+			<rectangle>
+				<reportElement x="9" y="-1" width="773" height="211" uuid="28c41297-cffb-4000-8816-2830c1e53644"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="14" y="7" width="150" height="19" uuid="c8e8d8ba-52cc-4544-a8c7-ad6e9f81b048"/>
+				<text><![CDATA[Pagador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="26" width="150" height="19" uuid="4fa53112-e6f6-408e-a897-67ecf6d496d8"/>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="45" width="150" height="19" uuid="097ff209-e091-4f30-852b-3272c326ebef"/>
+				<text><![CDATA[Data Geração]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="64" width="150" height="19" uuid="1af6bb05-bbfb-4b65-a3a6-da5789215b71"/>
+				<text><![CDATA[Data Vencimento]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="14" y="150" width="757" height="30" uuid="c8086587-5e79-4ab4-8b63-d63d56d21497"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="3of9" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA["12345157125111121212121501251251251231231231213"]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<staticText>
+				<reportElement x="14" y="83" width="150" height="19" uuid="17634d60-6c04-41c4-8dff-838a0f17e9d6"/>
+				<text><![CDATA[Valor Multa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="102" width="150" height="19" uuid="144f6491-1aa8-45b3-a9a2-def38f74178f"/>
+				<text><![CDATA[Valor Documento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="164" y="26" width="246" height="19" uuid="5f51648d-d0c9-4153-8d4e-3df03bc839c8"/>
+				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="64" width="246" height="19" uuid="dc8eddb9-5eff-4d2e-8a15-ca828329c985"/>
+				<textFieldExpression><![CDATA[$F{dataVencimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="45" width="246" height="19" uuid="a83e1361-24fa-406e-a2f8-77dc86cd187f"/>
+				<textFieldExpression><![CDATA[$F{dataGeracao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="R$ #,##0.00">
+				<reportElement x="164" y="83" width="246" height="19" uuid="7f248d52-b1ba-44e2-b6a2-81658c9cc183"/>
+				<textFieldExpression><![CDATA[$F{multa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="R$ #,##0.00">
+				<reportElement x="164" y="102" width="246" height="19" uuid="6899a65c-23f1-4cca-b806-776e6d9964e7"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="7" width="246" height="19" uuid="35dec6fa-f79b-451f-8d3e-91745708c07d"/>
+				<textFieldExpression><![CDATA[$F{pagador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="470" y="30" width="261" height="81" backcolor="#BFBFBF" uuid="40810efa-a55d-4528-b532-f8334c674f81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="33"/>
+				</textElement>
+				<text><![CDATA[IPTU]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnFooter>
+</jasperReport>

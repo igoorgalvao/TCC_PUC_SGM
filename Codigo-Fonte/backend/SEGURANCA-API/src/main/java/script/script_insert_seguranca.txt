@@ -1,0 +1,17 @@
+--use segurancadb;
+
+--Tipo Denuncia
+insert into tipo_denuncia values(1,'Homicídio');
+insert into tipo_denuncia values(2,'Tráfico de Drogas');
+insert into tipo_denuncia values(3,'Furtos / Roubo');
+insert into tipo_denuncia values(4,'Maus-tratos aos Animais');
+insert into tipo_denuncia values(5,'Procurados');
+insert into tipo_denuncia values(6,'Lavagem de Dinheiro');
+insert into tipo_denuncia values(7,'Violência contra Mulher');
+insert into tipo_denuncia values(8,'Violência contra Criança');
+insert into tipo_denuncia values(9,'Violência contra Idoso');
+insert into tipo_denuncia values(10,'Aglomeração - COVID');
+
+
+
+

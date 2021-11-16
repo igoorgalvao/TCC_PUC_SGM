@@ -1,0 +1,9 @@
+<div class="layout-wrapper" [ngClass]="{'layout-news-active': newsActive}">
+  <app-topbar (menuButtonClick)="onMenuButtonClick()"></app-topbar>
+  <app-menu [active]="menuActive"></app-menu>
+
+  <div class="layout-content">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+--UBS
+insert into unidade_basica_saude values(1,'Avenida 10 Lote 20', 'UBS - 1');
+insert into unidade_basica_saude values(2,'Avenida 20 Lote 30', 'UBS - 2');
+insert into unidade_basica_saude values(3,'Avenida 30 Lote 40', 'UBS - 3');
+insert into unidade_basica_saude values(4,'Avenida 40 Lote 50', 'UBS - 4');
+insert into unidade_basica_saude values(5,'Avenida 50 Lote 60', 'UBS - 5');
+insert into unidade_basica_saude values(6,'Avenida 60 Lote 100', 'UBS - 6');
+insert into unidade_basica_saude values(7,'Avenida 70 Lote 150', 'UBS - 7');
+
+
+
+--TESTE
+insert into teste values(1,'TESTE QUALIDADE DE VIDA MYSQL OK');
+

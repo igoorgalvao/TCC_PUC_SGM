@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+<div class="content-section introduction">
+    <div>
+        <h3>Agendamento Médico</h3>
+        <p>Realizar Agendamento Médico em Unidade Básica de Saúde</p>
+    </div>
+</div>
+
+<form id="form" name="form" #form="ngForm">
+    <div class="content-section implementation " style="min-height: 550px;">
+
+        <div class="p-grid">
+            <div class="p-col">
+                <p-panel header="Consultar Agendamento">
+                    <p class="p-m-0">
+                        Consultar agendamento de atendimento médico.
+                    </p>
+                    <br /><br />
+
+                    <div class="p-grid">
+                        <div class="p-col-6">
+                            <button (click)="consultar()" pButton pRipple type="button" label="Consultar Agendamento"
+                                class="p-button-rounded"></button>
+                        </div>
+                    </div>
+                </p-panel>
+            </div>
+            <div class="p-col">
+                <p-panel header="Realizar Agendamento">
+                    <p class="p-m-0">
+                        Realizar o agendamento de consulta médica em unidade básica de saúde
+                    </p>
+                    <br /><br />
+
+                    <div class="p-grid">
+                        <div class="p-col-7">
+                            <button (click)="incluir()" pButton pRipple type="button"
+                                label="Realizar Agendamento de Consulta"
+                                class="p-button-rounded p-button-success"></button>
+                        </div>
+                    </div>
+                </p-panel>
+            </div>
+
+        </div>
+
+
+    </div>
+</form>

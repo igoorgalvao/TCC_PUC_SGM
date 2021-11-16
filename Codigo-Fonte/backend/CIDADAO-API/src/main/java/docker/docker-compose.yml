@@ -1,0 +1,73 @@
+version: '3.7'
+
+volumes:
+  pg_data_geo:
+  vl_cidadao:
+  vl_seguranca:
+  vl_qualidadevida:
+  postgres_data:
+      driver: local
+
+services:
+  cidadao-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cidadaodb
+    ports:
+      - "3306:3306"
+    volumes:
+      - vl_cidadao:/var/lib/mysql
+  seguranca-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: segurancadb
+    ports:
+      - "3307:3306"
+    volumes:
+      - vl_seguranca:/var/lib/mysql
+  qualidadevida-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: qualidadevidadb
+    ports:
+      - "3308:3306"
+    volumes:
+      - vl_qualidadevida:/var/lib/mysql
+  georreferencia-db:
+      image: postgres:13.2
+      volumes:
+        - pg_data_geo:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: georreferenciadb
+        POSTGRES_USER: geo
+        POSTGRES_PASSWORD: geo
+      ports:
+      - 5961:5432      
+  postgres:
+      image: postgres
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: keycloak
+        POSTGRES_USER: keycloak
+        POSTGRES_PASSWORD: password
+  keycloak:
+      image: quay.io/keycloak/keycloak:12.0.4
+      environment:
+        DB_VENDOR: POSTGRES
+        DB_ADDR: postgres
+        DB_DATABASE: keycloak
+        DB_USER: keycloak
+        DB_SCHEMA: public
+        DB_PASSWORD: password
+        KEYCLOAK_USER: admin
+        KEYCLOAK_PASSWORD: admin
+        # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+        #JDBC_PARAMS: "ssl=true"
+      ports:
+        - 8080:8080
+      depends_on:
+        - postgres

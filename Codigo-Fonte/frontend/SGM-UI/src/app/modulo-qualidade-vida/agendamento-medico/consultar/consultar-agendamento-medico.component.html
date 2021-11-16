@@ -1,0 +1,86 @@
+<p-toast></p-toast>
+<div class="content-section introduction">
+    <div>
+        <h3>Agendamento Médico</h3>
+        <p>Realizar Agendamento Médico em Unidade Básica de Saúde</p>
+    </div>
+</div>
+
+<form id="form" name="form" #form="ngForm">
+    <div class="content-section implementation " style="min-height: 550px;">
+
+        <div class="card">
+
+            <div class="p-formgroup-inline">
+                <div class="p-field p-fluid p-col-12 p-md-4 ">
+                    <label for="cpf">CPF</label>
+                    <span for="cpf" style="color: red"> *</span>
+
+                    <p-inputMask name="cpf" type="text" [(ngModel)]="cpfConsulta" mask="999.999.999-99">
+                    </p-inputMask>
+                </div>
+
+                <div class="p-field p-col-12 p-md-3" style="padding-top: 22px;">
+                    <div class="p-fluid p-formgrid p-grid">
+                        <div class="p-field p-col ">
+                            <button (click)="pesquisar()" pButton pRipple type="button" label="Consultar"
+                                class="p-button-rounded"></button>
+                        </div>
+                        <div class="p-field p-col">
+                            <button (click)="limpar()" pButton pRipple type="button" label="Limpar"
+                                class="p-button-rounded p-button-secondary"></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p-table [value]="lista" *ngIf="exibirGrid" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+                currentPageReportTemplate=" " [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll"
+                [rowsPerPageOptions]="[5,10,25,50]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>UBS</th>
+                        <th>Especialidade</th>
+                        <th>Data Hora</th>
+                        <th>Ações</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr>
+                        <td>{{item.ubs.nome}}</td>
+                        <td>{{item.especialidade}}</td>
+                        <td>{{item.dataHoraAgendamento | date:"dd/MM/yyyy HH:mm"}}</td>
+                        <td>
+
+                            <button pButton pRipple icon="pi pi-pencil"
+                                class="p-button-rounded p-button-secondary p-mr-2" (click)="openEditar(item.id)"
+                                pTooltip="Alterar Agendamento" tooltipPosition="left"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-secondary"
+                                (click)="confirmExcluir(item.id,$event)" pTooltip="Excluir Agendamento"
+                                tooltipPosition="left"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                        <td [attr.colspan]="columns && columns.length">
+                            Nenhuma consulta agendanda para o CPF
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+            <br /><br />
+            <div class="p-text-right">
+                <button (click)="voltar()" pButton pRipple type="button" label="Voltar"
+                    class="p-button-rounded p-button-secondary"></button>
+            </div>
+
+        </div>
+
+        <p-confirmPopup></p-confirmPopup>
+
+
+    </div>
+</form>

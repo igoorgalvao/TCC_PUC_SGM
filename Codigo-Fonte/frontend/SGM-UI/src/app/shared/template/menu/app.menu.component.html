@@ -1,0 +1,49 @@
+<div class="layout-sidebar" [ngClass]="{'active': active}">
+        <a [routerLink]="['/']" class="logo">
+                <img alt="logo" [src]="'/assets/images/logo1.png'" width="100" height="80" />
+        </a>
+
+        <div *ngIf="isLogado" class="layout-menu">
+                <span *appPermissao="['SGM_FUNCIONARIO']">
+                        <div>
+                                <div class="menu-category">ADMINISTRATIVO</div>
+                                <div class="menu-items">
+                                        <a [routerLink]=" ['/unidade-basica-saude']"
+                                                routerLinkActive="router-link-exact-active">Unidade Básica de Saúde</a>
+                                </div>
+                        </div>
+                </span>
+                <span>
+                        <div class="menu-category">Cidadão</div>
+                        <div class="menu-items">
+                                <a [routerLink]=" ['/gerar-imposto']" routerLinkActive="router-link-exact-active">Gerar
+                                        Imposto IPTU/ITR</a>
+                        </div>
+                </span>
+
+                <span>
+                        <div class="menu-category">Georreferência</div>
+                        <div class="menu-items">
+                                <a href="https://cidades.ibge.gov.br/brasil/mg/uberaba/panorama" target="_blank">Dados
+                                        IBGE</a>
+                        </div>
+                </span>
+
+                <span>
+                        <div class="menu-category">Segurança</div>
+                        <div class="menu-items">
+                                <a [routerLink]=" ['/denuncia']" routerLinkActive="router-link-exact-active">Cadastrar
+                                        Denúncia</a>
+                        </div>
+                </span>
+
+                <span>
+                        <div class="menu-category">Qualidade de Vida</div>
+                        <div class="menu-items">
+                                <a [routerLink]=" ['/agendamento-medico']"
+                                        routerLinkActive="router-link-exact-active">Agendamento Médico</a>
+                        </div>
+                </span>
+
+        </div>
+</div>

@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+<div class="content-section introduction">
+</div>
+
+<div class="content-section implementation" style="min-height: 550px;">
+
+    <h5>Indicadores Covid-19</h5>
+
+
+    <div class="p-grid p-formgrid p-text-center">
+        <div class="p-field p-col-12 p-md-2">
+            <h5>Total de Habitantes</h5>
+            <p-knob [(ngModel)]="indicadorConvid.totalHabitante" [min]="indicadorConvid.min" [max]="indicadorConvid.max"
+                [size]="150" [readonly]="true">
+            </p-knob>
+        </div>
+        <div class="p-field p-col-12 p-md-2">
+            <h5>Testados</h5>
+            <p-knob [(ngModel)]="indicadorConvid.testados" [min]="indicadorConvid.min" [max]="indicadorConvid.max"
+                [size]="150" [readonly]="true">
+            </p-knob>
+        </div>
+        <div class="p-field p-col-12 p-md-2">
+            <h5>Confirmados</h5>
+            <p-knob [(ngModel)]="indicadorConvid.confirmados" [min]="indicadorConvid.min" [max]="indicadorConvid.max"
+                [size]="150" [readonly]="true">
+            </p-knob>
+        </div>
+        <div class="p-field p-col-12 p-md-2">
+            <h5>Ativos</h5>
+            <p-knob [(ngModel)]="indicadorConvid.ativos" [min]="indicadorConvid.min" [max]="indicadorConvid.max"
+                [size]="150" [readonly]="true" valueColor="red">
+            </p-knob>
+        </div>
+        <div class="p-field p-col-12 p-md-2">
+            <h5>Recuperados</h5>
+            <p-knob [(ngModel)]="indicadorConvid.recuperados" [min]="indicadorConvid.min" [max]="indicadorConvid.max"
+                [size]="150" [readonly]="true" valueColor="green">
+            </p-knob>
+        </div>
+        <div class="p-field p-col-12 p-md-2">
+            <h5>Óbitos</h5>
+            <p-knob [(ngModel)]="indicadorConvid.obitos" [min]="indicadorConvid.min" [max]="indicadorConvid.max"
+                [size]="150" [readonly]="true" valueColor="SlateGray">
+            </p-knob>
+        </div>
+    </div>
+
+</div>

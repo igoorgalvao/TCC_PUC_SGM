@@ -1,0 +1,24 @@
+<div class="layout-topbar">
+    <a *ngIf="isLogado" class="menu-button" (click)="onMenuButtonClick($event)">
+        <i class="pi pi-bars"></i>
+    </a>
+    <ul #topbarMenu class="topbar-menu">
+        <li *ngIf="isLogado" class="p-text-right" style="width: 300px;">
+            <p-avatar icon="pi pi-user" styleClass="p-mr-2" shape="circle"
+                [style]="{'background-color':'#2196F3', 'color': '#ffffff'}"></p-avatar>
+            <span>{{usuarioLogado?.primeiroNome}} {{usuarioLogado?.sobrenome}}</span>
+        </li>
+        <li *ngIf="isLogado" class="p-text-right">
+            <a (click)="logout()">
+                <i class="fas fa-power-off"></i>&nbsp;
+                <span>Sair</span>
+            </a>
+        </li>
+        <li *ngIf="!isLogado" class="p-text-right">
+            <a (click)="entrar()">
+                <i class="fas fa-sign-in-alt"></i>&nbsp;
+                <span>Entrar</span>
+            </a>
+        </li>
+    </ul>
+</div>
