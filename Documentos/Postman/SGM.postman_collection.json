@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "39f66f19-73c2-4829-8c56-015ad2efe8ef",
+		"name": "SGM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cep-ViaCEP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://viacep.com.br/ws/72220255/json",
+					"protocol": "https",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"72220255",
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SASCI - Ficha SUS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tcc-backend-legado-api.herokuapp.com/legado-api/sasci/obterFichaSus/01983317110",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-legado-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"legado-api",
+						"sasci",
+						"obterFichaSus",
+						"01983317110"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STUR - Imposto Gerado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tcc-backend-legado-api.herokuapp.com/legado-api/stur-imposto/obterImposto/01983317110/3/72220255/30",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-legado-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"legado-api",
+						"stur-imposto",
+						"obterImposto",
+						"01983317110",
+						"3",
+						"72220255",
+						"30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Keycloak - SGM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "funcionario@sgm.com.br",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "sgm-ui",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sgm-keycloak-pucminas.herokuapp.com/auth/realms/SGM/protocol/openid-connect/token",
+					"protocol": "https",
+					"host": [
+						"sgm-keycloak-pucminas",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth",
+						"realms",
+						"SGM",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Agendamento Medico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tcc-backend-qualidade-api.herokuapp.com/qualidadevida-api/agendamento-medico/pesquisar/019.833.171-10",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-qualidade-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"qualidadevida-api",
+						"agendamento-medico",
+						"pesquisar",
+						"019.833.171-10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista UBS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://tcc-backend-qualidade-api.herokuapp.com//qualidadevida-api/agendamento-medico/listarUSB",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-qualidade-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"",
+						"qualidadevida-api",
+						"agendamento-medico",
+						"listarUSB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar Agendamento Medico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"cpf\":\"01983317110\",\r\n    \"dataHoraAgendamento\": \"2021-10-20T06:05:30.000Z\",\r\n    \"idUbs\": \"1\",\r\n    \"especialidade\": \"Pediatria\"\r\n           \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tcc-backend-qualidade-api.herokuapp.com/qualidadevida-api/agendamento-medico",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-qualidade-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"qualidadevida-api",
+						"agendamento-medico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Agendamento Medico",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://tcc-backend-qualidade-api.herokuapp.com/qualidadevida-api/agendamento-medico/5",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-qualidade-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"qualidadevida-api",
+						"agendamento-medico",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Agendamento Medico",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n\t\"cpf\":\"01983317110\",\r\n    \"dataHoraAgendamento\": \"2021-10-21T06:05:30.000Z\",\r\n    \"idUbs\": \"3\",\r\n    \"especialidade\": \"Pediatria\"\r\n           \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tcc-backend-qualidade-api.herokuapp.com/qualidadevida-api/agendamento-medico",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-qualidade-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"qualidadevida-api",
+						"agendamento-medico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar denúncia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"tipoDenuncia\":{\r\n        \"id\": 1\r\n    },\r\n    \"enderecoOcorrencia\": \"Rua Branca\",\r\n    \"descricao\": \"Denúncia do municipio\"\r\n           \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://tcc-backend-seguranca-api.herokuapp.com/seguranca-api/denuncia",
+					"protocol": "https",
+					"host": [
+						"tcc-backend-seguranca-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"seguranca-api",
+						"denuncia"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
