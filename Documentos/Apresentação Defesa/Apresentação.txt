@@ -1,0 +1,130 @@
+
+
+############ Apresentação ##################
+
+
+### Passo a Passo ###
+1- Subir o servidores do Heroku
+2- Abrir txt de apresentação
+3- Abrir pasta de entrega: E:\Desenvolvimento\Projeto-TCC\Fonte-final\repositorio_entrega
+4- Testar Webcam
+5- Video apresentação: E:\Desenvolvimento\Projeto-TCC\Fonte-final\repositorio_entrega\TCC_PUC_SGM\Documentos\Apresentação Defesa
+6- https://pucminas.instructure.com/courses/9338/discussion_topics/350619
+
+https://www.youtube.com/watch?v=HQDxrLkRLoM&feature=youtu.be
+
+Fazer:::::
+Explicação de cada item que tenho dificuldades
+	* Microserviços
+		* Componentes independentes
+		* Cada processo é um serviço
+		* Serviço se comunicam atraves de interface bem definida
+		* Oposto da arquitetura monolitica
+		* Caracteristicas
+			* Autonomos
+				* Cada serviço pode ser implantado, operado e escalado sem afetar outros
+			* Especializado
+				* Dedicado a solução de um problema especifico
+		* Beneficios
+			* Agilidade
+			* Escalibilidade flexivel
+			* Facil implantação
+			* Liberdade tecnologica
+			* Codigo reutilizavel
+	* Mule
+		* Diferentes aplicativos se comuniquem entre sistema
+		* Altamente escalavel
+		* Pode integrar legado com facilidade
+		
+	* ESB
+		* Enterprise Service BUS
+		* Tecnologia para integrar sistemas 
+		* Utiliza SOA
+		~	* padrão arquitetural de criação de serviços
+		* Utiliza camada de barramento
+		
+	* SOA
+		* Arquitetura orientada a serviço
+		* Disponibilizar funcionalidades como serviço
+		
+		
+	* NGINX
+		* NGINX Vs Apache
+		* balanceador de carga,
+		* Proxy reverso
+		* Proxy de email
+	
+
+
+### Arquivos ###
+Codigo Fonte - E:\Desenvolvimento\Projeto-TCC\Fonte-final\repositorio_entrega
+Documentos   - E:\Desenvolvimento\Projeto-TCC\Fonte-final\repositorio_entrega\TCC_PUC_SGM\Documentos
+Diagramas    - E:\Desenvolvimento\Projeto-TCC\Fonte-final\repositorio_entrega\TCC_PUC_SGM\Documentos\Diagramas
+Apresentação - E:\Desenvolvimento\Projeto-TCC\Fonte-final\repositorio_entrega\TCC_PUC_SGM\Documentos\Apresentação Defesa
+
+
+### Links ###
+https://tcc-backend-cidadao-api.herokuapp.com/cidadao-api/teste/listar
+https://tcc-backend-qualidade-api.herokuapp.com/qualidadevida-api/teste/listar
+https://tcc-backend-seguranca-api.herokuapp.com/seguranca-api/teste/listar
+https://tcc-backend-legado-api.herokuapp.com/legado-api/sasci/obterFichaSus/01983317110
+https://tcc-backend-legado-api.herokuapp.com/legado-api/stur-imposto/obterImposto/01983317110/3/72220255/30
+https://sgm-keycloak-pucminas.herokuapp.com/auth/
+https://tcc-angular-ui.herokuapp.com/#/home
+
+### Legado ###
+* Gerar IPTU/ITR
+	* STUR Obter dados do imposto
+	
+* Agendamento Médico
+	* SASCi obter dados da ficha do SUS
+	
+
+### Código Fonte - API's ###
+Administrativo 
+	* Unidade Básica de Saúde
+		* CRUD Basico	
+		
+Cidadão 
+	* Gerar IPTU/ITR
+		* Serviço dos Correios buscar Endereço
+		* STUR Obter dados do imposto
+			* Devolve XML
+			
+Georreferência
+	* Dados IBGE
+	* Link
+	
+Segurança
+	* Cadastrar Denúncia
+	
+Qualidade de vida
+	* Agendamento Médico
+	* Sasci obter dados do ficha do SUS
+		* Devolve XML
+	
+
+### SCRIPT Aplicação Web Ao vivo ###
+Apresentação da aplicação web
+
+* POC hospedada totalmente em nuvem	
+* Utilizando o serviço do heroku
+* Autenticação e autorização foi utilizado o keycloack
+* Menu Administrativo somente funcionarios com permissão especifica podem ver
+
+* Mostrar a funcionalidade Agendamento de consulta
+	* Realizar agendamento
+		* Busca dados do SUS no Sistema legado SASCi
+	* Consultar agendamento
+	* Excluir agendamento
+	
+* RNF acessibilidade - Responsivo conforme a resolução
+
+* Realizar a geração de IPTU/ITR
+	* Realiza consulta do CEP em webservices 
+	* Recupera o imposto do sistema legado STUR
+	* Gera o IPTU
+	
+
+
+	
